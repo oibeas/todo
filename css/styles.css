@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: black;
+    color: white;
+    /* min-height: 150px; */
+    padding: 0px;
+    /* margin-bottom: 20px; */
+    border-bottom: 10px solid black;
+}
+
+header .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.datos {
+    background-color: yellowgreen;
+    height: 50px;
+    padding: 10px;
+}
+
+.busqueda {
+    background-color: cornflowerblue;
+    height: 50px;
+    padding: 10px;
+}
+
+#textoTarea, #busquedaTarea {
+    width: 30%;
+    height: 30px;
+}
+
+#prioridad, #buscar {
+    width: 30%;
+    height: 30px;
+}
+
+#botonGuardar {
+    width: 30%;
+    height: 30px;
+    background-color: rgb(216, 240, 169);
+}
+
+.pie {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: black;
+    color: white;
+    height: 50px;
+    padding: 20px;
+}
