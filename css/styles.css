@@ -54,3 +54,8 @@ header .container {
     height: 50px;
     padding: 20px;
 }
+
+main {
+    max-width: 800px;
+    padding: 0 auto;
+}
