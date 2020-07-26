@@ -9,10 +9,23 @@ function pintarUnaTarea(pTarea) {
     seccionTareas.innerHTML += `<div data-id="${pTarea.idTarea}" id="tarea_${pTarea.idTarea}">
                                     <ul>
                                         <li>${pTarea.titulo}</li>
-                                        <li>${pTarea.prioridad}</li>
-                                        <button onclick="borrarTarea('tarea_${pTarea.idTarea}')">Eliminar</button>
+                                        
+                                        <button class="btn btn-danger btn-sm" onclick="borrarTarea('tarea_${pTarea.idTarea}')">Eliminar</button>
                                     </ul>
                                 </div>`;
+    let divtarea = document.getElementById(`tarea_${pTarea.idTarea}`);
+    switch (pTarea.prioridad) {
+        case 'urgente':
+            divtarea.setAttribute('style', `background-color: red`);
+            break;
+        case 'diaria':
+            divtarea.setAttribute('style', `background-color: lightskyblue`);
+            break;
+        case 'mensual':
+            divtarea.setAttribute('style', `background-color: greenyellow`);
+            break;
+    }
+
 }
 
 pintarTareas(listaTareas);

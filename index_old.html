@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicacion web LISTA DE TAREAS</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/modelo.js"></script>
+
+</head>
+
+<body>
+
+
+    <header>
+        <div class="container">
+            <h1>LISTA DE TAREAS</h1>
+
+            <hr>
+
+            <div class="datos">
+                <form action="">
+                    <input type="text" id="textoTarea" placeholder="Introduce una tarea">
+                    <select id="prioridad">
+                        <option value="diaria">Diaria</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="urgente">Urgente</option>
+                    </select>
+                    <input type="submit" id="botonGuardar" value="Guardar Tarea">
+                </form>
+            </div>
+
+            <hr>
+
+            <div class="busqueda">
+                <!-- filtro tareas -->
+                <form action="">
+                    <select id="buscar">
+                        <option value="">Seleccione una prioridad</option>
+                        <option value="diaria">Diaria</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="urgente">Urgente</option>
+                    </select>
+                    <input type="text" id="busquedaTarea" placeholder="Buscar tareas">
+                </form>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <section id="tareas">
+            <!-- <div>
+                <ul>
+                    <li>Tarea 1</li>
+                    <li>Prioridad</li>
+                    <button id="eliminar">Eliminar</button>                    
+                </ul>
+            </div> -->
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="pie">
+            <h3>APP TODO's © OSCAR</h3>
+        </div>
+    </footer>
+
+
+
+    <script src="js/eventos.js"></script>
+    <script src="js/funciones.js"></script>
+</body>
+
+</html>
