@@ -6,13 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicacion web LISTA DE TAREAS</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script>
-        var listaTareas = new Array();
-        listaTareas = [{ 'idTarea': 0, 'titulo': 'Estudiar Javascript', 'prioridad': 'urgente' },
-        { 'idTarea': 2, 'titulo': 'Dormir', 'prioridad': 'diaria' },
-        { 'idTarea': 3, 'titulo': 'Salir a comer', 'prioridad': 'mensual' }
-        ];
-    </script>
+    <script src="js/modelo.js"></script>
+
 </head>
 
 <body>
@@ -42,6 +37,7 @@
                 <!-- filtro tareas -->
                 <form action="">
                     <select id="buscar">
+                        <option value="">Seleccione una prioridad</option>
                         <option value="diaria">Diaria</option>
                         <option value="mensual">Mensual</option>
                         <option value="urgente">Urgente</option>
@@ -59,6 +55,7 @@
                 <ul>
                     <li>Tarea 1</li>
                     <li>Prioridad</li>
+                    <button id="eliminar">Eliminar</button>                    
                 </ul>
             </div> -->
         </section>
@@ -72,8 +69,9 @@
     </footer>
 
 
-    <script src="js/funciones.js"></script>
+
     <script src="js/eventos.js"></script>
+    <script src="js/funciones.js"></script>
 </body>
 
 </html>

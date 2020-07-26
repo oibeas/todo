@@ -1,5 +1,4 @@
-let seccionTareas = document.querySelector('#tareas');
-
+// INICIO PINTAR TAREAS
 function pintarTareas(pTareas) {
     seccionTareas.innerHTML = "";
     // numeroTareas.innerHTML = pTareas.length;
@@ -7,22 +6,24 @@ function pintarTareas(pTareas) {
 }
 
 function pintarUnaTarea(pTarea) {
-    seccionTareas.innerHTML += `<div>
+    seccionTareas.innerHTML += `<div data-id="${pTarea.idTarea}" id="tarea_${pTarea.idTarea}">
                                     <ul>
                                         <li>${pTarea.titulo}</li>
                                         <li>${pTarea.prioridad}</li>
-                                        <button id="eliminar">Eliminar</button>
+                                        <button onclick="borrarTarea('tarea_${pTarea.idTarea}')">Eliminar</button>
                                     </ul>
                                 </div>`;
 }
 
+pintarTareas(listaTareas);
+// FIN PINTAR TAREAS
+
+// INICIO GUARDAR TAREA
 function guardarTarea(pTareaGuardar) {
     listaTareas.push(pTareaGuardar)
 }
 
-let btnGuardar = document.getElementById('botonGuardar');
 btnGuardar.addEventListener('click', capturarDatosForm);
-let contadorTareas = 4
 
 function capturarDatosForm(event) {
     event.preventDefault();
@@ -43,24 +44,57 @@ function capturarDatosForm(event) {
     // inputPrioridad.value = "diaria";
     contadorTareas++;
 }
+// FIN GUARDAR TAREA
 
-function borrarTarea(pNoticiaBorrar) {
-
-    let noticiaBorrar = document.getElementById(pNoticiaBorrar);
-    seccionNoticias.removeChild(noticiaBorrar);
-    //poniendo un data-id a todo el div del articulo puedo pasar el parametro que necesite la funcion de borrar, en este caso puedo pasarle directamente el id de la noticia que voy a borrar en el array.
-    //opcion 1 con dataset
-    //borrar(noticiaBorrar.dataset.id);
-
-    //opcion2. cortando la cadena de caracteres.
-    //split es una funcion que parte una cadena caracteres en dos o mas elementos noticia_1. split crea un array de elementos por cada uno de los elementos que no sean el elemento
-    //let id = pNoticiaBorrar.split('_')[1];
-    //substring me permite tambien partir un string en otros string mas pequeños.
-    let id = pNoticiaBorrar.substring(8)
+// INICIO BORRAR TAREA
+function borrarTarea(pBorrarTarea) {
+    let tareaBorrarId = document.getElementById(pBorrarTarea);
+    seccionTareas.removeChild(tareaBorrarId);
+    let id = pBorrarTarea.substring(6)
     console.log(id);
     borrar(id)
 }
 
+function borrar(pId) {
+    let id = parseInt(pId);
+    let posicionBorrar = listaTareas.findIndex(tareaBorrar => tareaBorrar.idTarea == id);
+    listaTareas.splice(posicionBorrar, 1);
+}
+// FIN BORRAR TAREA
+
+// INICIO FILTROS
+filtroPrioridad.addEventListener('change', capturarPrioridad);
+
+function capturarPrioridad(event) {
+    let priority = event.target.value;
+    if (priority != "") {
+        let listaFiltradaPorPrioridad = filtrarXprioridad(listaTareas, priority);
+        pintarTareas(listaFiltradaPorPrioridad);
+    } else {
+        pintarTareas(listaTareas);
+    }
+}
+
+function filtrarXprioridad(listaTareas, pPrioridad) {
+    let listaXprioridad = new Array();
+    listaXprioridad = listaTareas.filter(tarea => tarea.prioridad == pPrioridad.toLowerCase());
+    return listaXprioridad;
+}
 
 
-pintarTareas(listaTareas);
+filtroTarea.addEventListener('input', capturarBusquedaTarea);
+
+function capturarBusquedaTarea(event) {
+    let busquedaTarea = event.target.value.toLowerCase();
+    console.log(busquedaTarea);
+    let listaFiltradaTarea = buscarXtarea(busquedaTarea);
+    pintarTareas(listaFiltradaTarea);
+}
+
+function buscarXtarea(pTareaBusqueda) {
+    const listaFiltrada = listaTareas.filter(tareaBusq => tareaBusq.titulo.toLowerCase().includes(pTareaBusqueda));
+    return listaFiltrada;
+}
+
+// FIN FILTROS
+
