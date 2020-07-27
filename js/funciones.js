@@ -10,7 +10,7 @@ function pintarUnaTarea(pTarea) {
                                     <ul>
                                         <li>${pTarea.titulo}</li>
                                         
-                                        <button class="btn btn-danger btn-sm" onclick="borrarTarea('tarea_${pTarea.idTarea}')">Eliminar</button>
+                                        <button class="btn btn-secondary btn-sm" onclick="borrarTarea('tarea_${pTarea.idTarea}')">Eliminar</button>
                                     </ul>
                                 </div>`;
     let divtarea = document.getElementById(`tarea_${pTarea.idTarea}`);

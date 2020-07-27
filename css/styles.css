@@ -68,3 +68,27 @@ main section ul li:nth-child(2) {
 main section ul {
     margin-bottom: 0;
 }
+
+/* .contenido {
+    padding: 0;
+    background-image: url('../images/todo_list.jpg');
+    border-radius: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 80vh;
+} */
+
+#tareas {
+    opacity: 95%;
+    margin-bottom: 30px;
+}
+
+body {
+    padding: 0;
+    background-image: url('../images/todo_list.jpg');
+    border-radius: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
