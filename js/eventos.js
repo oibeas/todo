@@ -1,5 +1,5 @@
 //capturar los elementos con los que voy a inteactuar.
-let contadorTareas = listaTareas.length + 1
+let contadorTareas = 4
 let inputTarea = document.getElementById('textoTarea');
 let inputPrioridad = document.getElementById('prioridad');
 let btnGuardar = document.getElementById('botonGuardar');
